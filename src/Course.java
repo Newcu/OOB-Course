@@ -40,9 +40,10 @@ public class Course {
     }
 
     public void addStudent(String student){
-        for (int i = 0; i < student.length(); i++) {
+        for (int i = 0; i < students.length; i++) {
             if (students[i] == null) {
                 students[i] = student;
+                numOfRegisteredStudents++;
                 return;
             }
         }
@@ -50,20 +51,21 @@ public class Course {
     }
 
     public void addTeacher(String teacher){
-        for (int i = 0; i < teacher.length(); i++) {
+        for (int i = 0; i < teachers.length; i++) {
             if (teachers[i] == null) {
                 teachers[i] = teacher;
+                numOfRegisteredTeachers++;
                 return;
             }
         }
+        System.out.println("Max number of teachers reached");
     }
 
     public void dropStudent(String student){
-        int counter = 0;
-        for(String s : students) {
-            counter++;
-            if (s.equals(student)) {
-                students[counter] = null;
+        for (int i = 0; i < students.length; i++){
+            if (students[i] != null && students[i].equals(student)) {
+                students[i] = null;
+                numOfRegisteredStudents--;
                 return;
             }
         }
@@ -71,11 +73,10 @@ public class Course {
     }
 
     public void dropTeacher(String teacher){
-        int counter = 0;
-        for(String t : teachers) {
-            counter++;
-            if (t.equals(teacher)) {
-                students[counter] = null;
+        for (int i = 0; i < teachers.length; i++){
+            if (teachers[i] != null && teachers[i].equals(teacher)) {
+                teachers[i] = null;
+                numOfRegisteredTeachers--;
                 return;
             }
         }
