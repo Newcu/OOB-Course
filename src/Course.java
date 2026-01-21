@@ -85,9 +85,11 @@ public class Course {
 
     public String[] showRegisteredStudents(){
         return students;
+
     }
 
     public String[] showRegisteredTeachers(){
         return teachers;
+
     }
 }

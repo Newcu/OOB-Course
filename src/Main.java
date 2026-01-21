@@ -1,8 +1,9 @@
 
 
 
+
 public class Main {
-    public static void Main(String[] args) {
-        new CourseWithStudentsAndTeachers();
+    public static void main(String[] args) {
+
     }
 }
