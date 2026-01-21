@@ -41,15 +41,13 @@ public class Course2 {
         this.cName = cName;
     }
 
-    public void addStudent(Student student){
-        for (int i = 0; i < students.length; i++) {
-            if (students[i] == null) {
-                students[i] = student;
-                numOfRegisteredStudents++;
-                return;
-            }
+    public void addStudent(String name, int ID, String email){
+        Student student = new Student(name, ID, email);
+        numOfRegisteredStudents++;
+
+        if (numOfRegisteredStudents >= maxNumOfStudents) {
+            System.out.println("Course is full");
         }
-        System.out.println("Course is full");
     }
 
     public void addTeacher(Teacher teacher){

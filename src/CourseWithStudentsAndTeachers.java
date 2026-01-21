@@ -1,5 +1,3 @@
-import javax.xml.transform.Source;
-import java.util.ArrayList;
 
 public class CourseWithStudentsAndTeachers {
     public void main() {
@@ -14,6 +12,7 @@ public class CourseWithStudentsAndTeachers {
         course.addStudent("Britney");
         course.addStudent("Denis");
         course.addStudent("Gresa");
+
         course.addTeacher("Zenun");
         course.addTeacher("Fisnik");
 
