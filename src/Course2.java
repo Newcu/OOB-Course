@@ -42,28 +42,26 @@ public class Course2 {
     }
 
     public void addStudent(String name, int ID, String email){
-        Student student = new Student(name, ID, email);
-        numOfRegisteredStudents++;
-
-        if (numOfRegisteredStudents >= maxNumOfStudents) {
+        if (numOfRegisteredStudents < maxNumOfStudents) {
+            students[numOfRegisteredStudents] = new Student(name, ID, email);
+            numOfRegisteredStudents++;
+        } else {
             System.out.println("Course is full");
         }
     }
 
-    public void addTeacher(Teacher teacher){
-        for (int i = 0; i < teachers.length; i++) {
-            if (teachers[i] == null) {
-                teachers[i] = teacher;
-                numOfRegisteredTeachers++;
-                return;
-            }
+    public void addTeacher(String name, String role, String email){
+        if (numOfRegisteredTeachers < maxNumOfTeachers) {
+            teachers[numOfRegisteredTeachers] = new Teacher(name, role, email);
+            numOfRegisteredTeachers++;
+        } else {
+            System.out.println("Max number of teachers reached");
         }
-        System.out.println("Max number of teachers reached");
     }
 
-    public void dropStudent(String student){
+    public void dropStudent(int ID){
         for (int i = 0; i < students.length; i++){
-            if (students[i] != null && students[i].equals(student)) {
+            if (students[i] != null && students[i].getpNumber() == ID) {
                 students[i] = null;
                 numOfRegisteredStudents--;
                 return;
@@ -72,9 +70,9 @@ public class Course2 {
         System.out.println("Student not found");
     }
 
-    public void dropTeacher(String teacher){
+    public void dropTeacher(String name){
         for (int i = 0; i < teachers.length; i++){
-            if (teachers[i] != null && teachers[i].equals(teacher)) {
+            if (teachers[i] != null && teachers[i].getName().equals(name)) {
                 teachers[i] = null;
                 numOfRegisteredTeachers--;
                 return;
